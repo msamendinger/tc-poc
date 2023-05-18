@@ -1,8 +1,3 @@
-data "tfe_project" "Test" {
-  name         = "Test"
-  organization = "danielschniepp"
-}
-
 data "tfe_organizations" "this" {
 }
 
@@ -10,13 +5,14 @@ output "organization" {
   value = data.tfe_organizations.this.ids
 }
 
-output "project" {
-  value = data.tfe_project.Test.id
+resource "tfe_project" "poc" {
+  name         = "POC"
+  organization = data.tfe_organizations.this.names[0]
 }
 
 resource "tfe_workspace" "workspace1" {
   name                  = "workspace1"
-  project_id            = data.tfe_project.Test.id
+  project_id            = tfe_project.poc.id
   organization          = "danielschniepp"
   description           = "workspace1"
   auto_apply            = true
@@ -31,7 +27,7 @@ resource "tfe_workspace" "workspace1" {
 
 resource "tfe_workspace" "workspace2" {
   name                  = "workspace2"
-  project_id            = data.tfe_project.Test.id
+  project_id            = tfe_project.poc.id
   organization          = "danielschniepp"
   description           = "workspace2"
   auto_apply            = true
