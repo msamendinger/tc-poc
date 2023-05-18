@@ -21,7 +21,7 @@ resource "tfe_workspace" "workspace1" {
   working_directory = "/workspace1"
   vcs_repo {
     identifier                 = "msamendinger/tc-poc"
-    github_app_installation_id = "37664124"
+    github_app_installation_id = var.github_app_installation_id
   }
 }
 
@@ -35,7 +35,7 @@ resource "tfe_workspace" "workspace2" {
   working_directory     = "/workspace2"
   vcs_repo {
     identifier                 = "msamendinger/tc-poc"
-    github_app_installation_id = "37664124"
+    github_app_installation_id = var.github_app_installation_id
   }
 }
 
