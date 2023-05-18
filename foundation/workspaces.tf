@@ -3,6 +3,17 @@ data "tfe_project" "Test" {
   organization = "danielschniepp"
 }
 
+data "tfe_organizations" "this" {
+}
+
+output "organization" {
+  value = data.tfe_organizations.this.ids
+}
+
+output "project" {
+  value = data.tfe_project.Test.id
+}
+
 resource "tfe_workspace" "workspace1" {
   name                  = "workspace1"
   project_id            = data.tfe_project.Test.id
