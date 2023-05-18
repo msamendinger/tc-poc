@@ -37,8 +37,5 @@ resource "tfe_workspace" "workspace2" {
     identifier                 = "msamendinger/tc-poc"
     github_app_installation_id = var.github_app_installation_id
   }
-  depends_on = [
-    tfe_workspace.workspace1
-  ]
 }
 
