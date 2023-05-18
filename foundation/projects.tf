@@ -1,4 +1,4 @@
-resource "tfe_project" "POC" {
+resource "tfe_project" "poc" {
   organization = "danielschniepp"
-  name         = "POC"
+  name         = "Test"
 }
