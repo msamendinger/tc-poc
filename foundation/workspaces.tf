@@ -1,6 +1,6 @@
 resource "tfe_workspace" "workspace1" {
   name                  = "workspace1"
-  project_id            = tfe_project.POC.id
+  project_id            = tfe_project.poc.id
   organization          = "danielschniepp"
   description           = "workspace1"
   auto_apply            = true
@@ -15,7 +15,7 @@ resource "tfe_workspace" "workspace1" {
 
 resource "tfe_workspace" "workspace2" {
   name                  = "workspace2"
-  project_id            = tfe_project.POC.id
+  project_id            = tfe_project.poc.id
   organization          = "danielschniepp"
   description           = "workspace2"
   auto_apply            = true
