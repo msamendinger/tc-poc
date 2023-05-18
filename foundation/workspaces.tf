@@ -8,7 +8,8 @@ resource "tfe_workspace" "workspace1" {
   #remote_state_consumer_ids = tfe_workspace.workspace2.id
   working_directory = "/workspace1"
   vcs_repo {
-    identifier = "msamendinger/tc-poc"
+    identifier                 = "msamendinger/tc-poc"
+    github_app_installation_id = "37664124"
   }
 }
 
@@ -21,7 +22,8 @@ resource "tfe_workspace" "workspace2" {
   file_triggers_enabled = true
   working_directory     = "/workspace2"
   vcs_repo {
-    identifier = "msamendinger/tc-poc"
+    identifier                 = "msamendinger/tc-poc"
+    github_app_installation_id = "37664124"
   }
 }
 
