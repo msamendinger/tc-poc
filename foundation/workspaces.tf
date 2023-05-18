@@ -1,6 +1,11 @@
+data "tfe_project" "Test" {
+  name         = "Test"
+  organization = "danielschniepp"
+}
+
 resource "tfe_workspace" "workspace1" {
   name                  = "workspace1"
-  project_id            = "qTn57pvazN1ZYYaK"
+  project_id            = data.tfe_project.Test.id
   organization          = "danielschniepp"
   description           = "workspace1"
   auto_apply            = true
@@ -15,7 +20,7 @@ resource "tfe_workspace" "workspace1" {
 
 resource "tfe_workspace" "workspace2" {
   name                  = "workspace2"
-  project_id            = "qTn57pvazN1ZYYaK"
+  project_id            = data.tfe_project.Test.id
   organization          = "danielschniepp"
   description           = "workspace2"
   auto_apply            = true
